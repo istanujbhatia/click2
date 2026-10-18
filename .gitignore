@@ -1,7 +1,6 @@
 node_modules/
 dist/
 api/_dist/
-api/handler.js
 .env
 .env.*
 !.env.example
