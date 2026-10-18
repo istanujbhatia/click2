@@ -3,15 +3,11 @@ import { vercelFetch } from "../dist/vercel.js";
 export const maxDuration = 60;
 export const runtime = "nodejs";
 
-function handle(request) {
-  return vercelFetch(request);
-}
-
-export default handle;
-export const GET = handle;
-export const HEAD = handle;
-export const POST = handle;
-export const PUT = handle;
-export const PATCH = handle;
-export const DELETE = handle;
-export const OPTIONS = handle;
+// Vercel treats a default function export as its legacy Node handler, whose
+// `request.url` is only a relative path. Click uses the Fetch API end-to-end,
+// so expose the Web Handler shape explicitly and receive a standard Request.
+export default {
+  fetch(request) {
+    return vercelFetch(request);
+  },
+};

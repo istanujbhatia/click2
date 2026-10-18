@@ -30579,25 +30579,12 @@ function vercelFetch(request) {
 // api/handler-source.js
 var maxDuration = 60;
 var runtime = "nodejs";
-function handle(request) {
-  return vercelFetch(request);
-}
-var handler_source_default = handle;
-var GET = handle;
-var HEAD = handle;
-var POST = handle;
-var PUT = handle;
-var PATCH = handle;
-var DELETE = handle;
-var OPTIONS = handle;
+var handler_source_default = {
+  fetch(request) {
+    return vercelFetch(request);
+  }
+};
 export {
-  DELETE,
-  GET,
-  HEAD,
-  OPTIONS,
-  PATCH,
-  POST,
-  PUT,
   handler_source_default as default,
   maxDuration,
   runtime
