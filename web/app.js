@@ -5,6 +5,7 @@ import { assistantMessageFrom, browserStorage, createConversationStore, createSi
   "use strict";
 
   // Small per-browser UI preferences (the banner); conversations have their own store below.
+  window.CLICK_CONFIG = window.CLICK_CONFIG || { social: { x: "", telegram: "", github: "" } };
   const prefs = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
     set(k, v) { try { localStorage.setItem(k, v); } catch { /* storage unavailable */ } },
