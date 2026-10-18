@@ -144,7 +144,7 @@ JSON logs: `config`, `http.request` (id, endpoint, status, ms), `intent.detected
 
 ## Deployment
 
-- **Vercel:** `vercel.json` rewrites to `api/index`, 300s function budget, security headers. Set env in the Vercel dashboard (same names as `.env.example`).
+- **Vercel:** import the `click2` GitHub repository, keep the project root at the repository root, and use the checked-in `vercel.json`. The `vercel-build` script compiles the server into `api/_dist`, while `web/` is deployed as the static output. The API function has a 60-second budget and the configuration adds security headers. Set the variables from `vercel.env.example` in the Vercel dashboard before deploying.
 - **Render:** `render.yaml` service `click`, `CLICK_*` names, `ONCHAIN_ENABLED=true`. Secrets `sync: false`.
 
 **Production checklist**
