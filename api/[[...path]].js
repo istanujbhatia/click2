@@ -1,19 +1,8 @@
-// Vercel catch-all for /api/*. Compiled app is copied to api/_dist by `npm run vercel-build`.
+// Vercel catch-all for /api/*. The bundled handler is created in api/_dist during the Vercel build.
+import handle from "./_dist/handler.js";
+
 export const maxDuration = 60;
 export const runtime = "nodejs";
-
-async function handle(request) {
-  try {
-    const { vercelFetch } = await import("./_dist/vercel.js");
-    return await vercelFetch(request);
-  } catch (err) {
-    console.error("click boot", err);
-    return new Response(JSON.stringify({ error: { kind: "internal", message: "Click server failed to load." } }), {
-      status: 500,
-      headers: { "content-type": "application/json" },
-    });
-  }
-}
 
 export default handle;
 export const GET = handle;
