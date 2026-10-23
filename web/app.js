@@ -7,7 +7,7 @@ import { assistantMessageFrom, browserStorage, createConversationStore, createSi
   // Small per-browser UI preferences (the banner); conversations have their own store below.
   window.CLICK_CONFIG = window.CLICK_CONFIG || {
     social: {
-      x: "https://x.com/Click_sol",
+      x: "https://x.com/Click_sol_",
       telegram: "",
       github: "https://github.com/askclick20-lab/Click",
     },

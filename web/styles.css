@@ -54,7 +54,38 @@ button { font: inherit; color: inherit; }
 }
 .announce[hidden] { display: none; }
 .announce p { margin: 0; }
-.announce-title { text-align: center; font-size: 16px; font-weight: 600; letter-spacing: 0.01em; }
+.announce-pump-row { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.announce-pump-link {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accent-rgb), 0.45);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.announce-pump-link:hover, .announce-pump-link:focus-visible { color: var(--accent-strong); text-decoration-color: currentColor; }
+.announce-or { color: var(--muted); font-size: 13px; }
+.announce-copy-done { font-family: var(--mono); font-size: 11px; font-weight: 500; }
+.announce-copy-icon {
+  display: inline-grid;
+  position: relative;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.announce-copy-icon:hover, .announce-copy-icon:focus-visible { border-color: var(--accent); background: rgba(var(--accent-rgb), 0.2); transform: translateY(-1px); }
+.announce-copy-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.announce-copy-icon .announce-copy-done { position: absolute; top: 100%; margin-top: 4px; white-space: nowrap; }
 .announce-meta { margin-top: 18px !important; padding-right: 32px; font-size: 13px; line-height: 1.35; overflow-wrap: anywhere; }
 .announce-meta .label { color: var(--soft); }
 .announce-meta .value { color: var(--accent); }
