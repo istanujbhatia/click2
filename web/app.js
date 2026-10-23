@@ -5,7 +5,13 @@ import { assistantMessageFrom, browserStorage, createConversationStore, createSi
   "use strict";
 
   // Small per-browser UI preferences (the banner); conversations have their own store below.
-  window.CLICK_CONFIG = window.CLICK_CONFIG || { social: { x: "", telegram: "", github: "" } };
+  window.CLICK_CONFIG = window.CLICK_CONFIG || {
+    social: {
+      x: "https://x.com/Click_sol_",
+      telegram: "",
+      github: "https://github.com/askclick20-lab/Click",
+    },
+  };
   const prefs = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
     set(k, v) { try { localStorage.setItem(k, v); } catch { /* storage unavailable */ } },
